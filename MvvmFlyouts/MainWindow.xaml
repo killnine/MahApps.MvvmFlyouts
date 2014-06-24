@@ -1,0 +1,45 @@
+﻿<controls:MetroWindow x:Class="MvvmFlyouts.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:behaviours="http://metro.mahapps.com/winfx/xaml/shared"
+        xmlns:helpers="clr-namespace:MvvmFlyouts.Helpers"
+        Title="MainWindow" Height="350" Width="525"
+        DataContext="{Binding Main, Source={StaticResource Locator}}"
+        ShowWindowCommandsOnTop="False">
+    <i:Interaction.Behaviors>
+        <behaviours:BorderlessWindowBehavior EnableDWMDropShadow="True"/>
+        <helpers:DialogBehavior/>
+    </i:Interaction.Behaviors>
+    <controls:MetroWindow.Flyouts>
+        <controls:FlyoutsControl>
+            <controls:Flyout Position="Right" Theme="Adapt" IsModal="True" IsOpen="{Binding IsFlyoutOpen}">
+                <Grid MinWidth="175">
+                    <TextBlock Text="Test!"/>
+                </Grid>
+            </controls:Flyout>
+        </controls:FlyoutsControl>
+    </controls:MetroWindow.Flyouts>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Rectangle Fill="LightSlateGray" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="3"/>
+        <TextBlock Text="MVVMLight + Metro" Foreground="GhostWhite" Margin="12" FontSize="20"/>
+        
+        <Rectangle Fill="LightSteelBlue" Grid.Row="1"  Grid.Column="0" Margin="3"/>
+        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Grid.Row="1">
+            <Button Height="25" Width="150" Content="Open Flyout" Command="{Binding OpenFlyoutCommand}" Margin="3"/>
+            <Button Height="25" Width="150" Content="Open Dialog" Command="{Binding OpenDialogCommand}" Margin="3"/>
+            <Button Height="25" Width="150" Content="Open Progress Dialog" Command="{Binding OpenProgressDialogCommand}" Margin="3"/>
+        </StackPanel>
+
+        <Rectangle Fill="LightSlateGray" Grid.Row="1" Grid.Column="1" Margin="3"/>
+    </Grid>
+</controls:MetroWindow>
