@@ -68,7 +68,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Helpers\DialogBehavior.cs" />
+    <Compile Include="Helpers\Behaviors\DialogBehavior.cs" />
     <Compile Include="Helpers\Enums\DialogMessageEnum.cs" />
     <Compile Include="Helpers\Messages\CustomDialogMessage.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
